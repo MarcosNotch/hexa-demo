@@ -1,0 +1,25 @@
+rabbitmq:
+  exchanges:
+    - x-demo-producto
+    - xdl-demo
+
+  queues:
+    - name: qdl-demo
+      durable: true
+      exclusive: false
+      auto-delete: false
+    - name: q-producto-creado
+      durable: true
+      exclusive: false
+      auto-delete: false
+      dead-letter-exchange: xdl-demo
+      dead-letter-routing-key: dl.demo
+
+
+  bindings:
+    - exchange: xdl-demo
+      queue: qdl-demo
+      routing-key: dl.demo
+    - exchange: x-demo-producto
+      queue: q-producto-creado
+      routing-key: producto.creado

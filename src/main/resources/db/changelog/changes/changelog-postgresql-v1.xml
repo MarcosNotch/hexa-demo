@@ -1,0 +1,25 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="table-producto-producto" author="PRODUCTO" >
+        <createSequence schemaName="producto" sequenceName="producto_seq" incrementBy="1" startValue="1"/>
+        <createTable schemaName="producto" tableName="producto">
+            <column name="uuid" type="varchar(36)"/>
+            <column name="id" type="bigint"/>
+            <column name="codigo" type="varchar(50)"/>
+            <column name="nombre" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="table-producto-integration_event" author="PRODUCTO" >
+        <createTable schemaName="producto" tableName="integration_event">
+            <column name="uuid" type="varchar(36)"/>
+            <column name="exchange" type="varchar(255)"/>
+            <column name="routing_key" type="varchar(255)"/>
+            <column name="payload" type="text"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

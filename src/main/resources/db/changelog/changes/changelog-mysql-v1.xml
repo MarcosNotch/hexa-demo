@@ -1,0 +1,23 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="table-stock-stock" author="STOCK" >
+        <createTable schemaName="stock" tableName="stock">
+            <column name="uuid" type="varchar(36)"/>
+            <column name="producto_id" type="bigint"/>
+            <column name="stock" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="table-stock-integration_event" author="STOCK" >
+        <createTable schemaName="stock" tableName="integration_event">
+            <column name="uuid" type="varchar(36)"/>
+            <column name="exchange" type="varchar(255)"/>
+            <column name="routing_key" type="varchar(255)"/>
+            <column name="payload" type="text"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    visibility:
+      field: default
+    serialization:
+      fail-on-empty-beans: false
+    deserialization:
+      fail-on-ignored-properties: false
+
+
+  datasource:
+    postgresql:
+      jdbc-url: jdbc:postgresql://localhost:5432/mrtn-hexa
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
+      liquibase:
+        change-log: classpath:/db/changelog/db.postgresql.changelog-master.yaml
+    mysql:
+      jdbc-url: jdbc:mysql://localhost:3307/stock
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      liquibase:
+        change-log: classpath:/db/changelog/db.mysql.changelog-master.yaml
+
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+
+  liquibase:
+    enabled: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: spring
+    password: spring
+    virtual-host: /
+    listener:
+      simple:
+        default-requeue-rejected: false
