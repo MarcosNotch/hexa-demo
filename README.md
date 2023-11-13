@@ -5,6 +5,7 @@ Proyecto realizado con java 11 utilizando Spring Framework,
 utilizando una arquitectura hexagonal siguiendo algunos principios de DDD,
 CQS y event sourcing.
 
+
 La estructura del proyecto esta divida en paquetes intentando diferenciar los "bounded-context" 
 y adentro de cada uno de estos paquetes se encuentran las diferentes capas.
 ej:
